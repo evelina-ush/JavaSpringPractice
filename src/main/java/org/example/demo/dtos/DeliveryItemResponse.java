@@ -13,8 +13,10 @@ public record DeliveryItemResponse(
         String productName,
 
         String customerName,
-        String customerCity,
-        String customerCountry
+
+        LocalDate contractDate,
+
+        String customerCity
 ) {
     public static DeliveryItemResponse from(DeliveryItem item) {
         return new DeliveryItemResponse(
@@ -27,11 +29,10 @@ public record DeliveryItemResponse(
                 item.getDelivery() != null && item.getDelivery().getCustomer() != null
                         ? item.getDelivery().getCustomer().getName() : null,
 
-                item.getDelivery() != null && item.getDelivery().getCustomer() != null
-                        ? item.getDelivery().getCustomer().getCity() : null,
+                item.getDelivery() != null ? item.getDelivery().getContractDate() : null,
 
                 item.getDelivery() != null && item.getDelivery().getCustomer() != null
-                        ? item.getDelivery().getCustomer().getCountry() : null
+                        ? item.getDelivery().getCustomer().getCity() : null
         );
     }
 }
