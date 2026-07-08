@@ -20,8 +20,12 @@ import java.util.Objects;
 
 @RestController
 public class DeliveryItemsController {
-    @Autowired
-    private DeliveryItemRepository deliveryRepo;
+
+    private final DeliveryItemRepository deliveryRepo;
+
+    public DeliveryItemsController(DeliveryItemRepository deliveryRepo) {
+        this.deliveryRepo = deliveryRepo;
+    }
 
     @GetMapping("supply-management/supplies")
     public Map<String, Object> getAllDeliveryItems() {
