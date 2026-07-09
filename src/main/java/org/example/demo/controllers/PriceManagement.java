@@ -32,7 +32,6 @@ public class PriceManagement {
     public Map<String, Object> getAllProducts() {
         Map<String, Object> response = new HashMap<>();
         try {
-            //List<ProductDTO> products = productService.getAllProductsForManagement();
             List<Product> products = productRepo.findAll();
             response.put("success", true);
             response.put("information", products);
